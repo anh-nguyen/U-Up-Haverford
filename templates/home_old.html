@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<script language="JavaScript">
+	window.onbeforeunload = exitPage;
+	function exitPage()
+	{
+	     
+	}
+</script>
+<div class="row">
+	<div id="sidebar" class="panel panel-default col-xs-10 col-sm-8 col-md-4 col-lg-4">
+		<div id="banner" class="banner col-xs-10 col-sm-8 col-md-12 col-lg-12">
+			<a href="{{ url_for('home') }}"><img src="/static/uuplogo.png" class="col-sm-12 col-md-12 col-lg-12" style="padding: 0; margin: 0;"></a>
+		</div>
+		<div class="panel-body">
+			<p>FILTERS:<p>
+			<form action="">
+				<input type="checkbox" name="activity" value="Study">Who wants to study?<br>
+				<input type="checkbox" name="activity" value="GetFood">Who wants to get food?<br>
+				<input type="checkbox" name="activity" value="HangOut">Who wants to hang out?<br>
+			</form>
+			<!-- List of people -->
+			<ul class=entries>
+				{% for entry in entries %}
+					<li><strong> {{ entry.name }} </strong> wants to {{ entry.activity }} in {{ entry.location }}: "<em>{{ entry.status }}</em>"
+				{% endfor %}
+			</ul>
+		</div>
+	</div> <!-- end div sidebar -->
+
+	<div id="map" class="col-md-offset-6 col-lg-offset-5">
+		<img src="/static/someCollege.png" id="haverfordMap" />
+		<map id="imageMap" name="imageMap">
+		</map>
+      </div> <!-- end div map -->
+</div> <!-- end div row -->
+{% endblock %}

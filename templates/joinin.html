@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<title>Join in the fun</title>
+</head>
+
+<body>
+	<div class="modal-header">
+         <h2 class="modal-title">Join In!</h2>
+	</div>
+
+	<div class="modal-body">
+     
+        <form id="joinin_form" name="joinin" action="{{ url_for('joinin') }}" method=post >
+                <dl>
+                        <dt>Name:
+                        <dd><input type=text name="name" required=required><br><br>
+                        <dt>Haverford.edu Email:
+                        <dd><input type=email name="email" placeholder="yourname@haverford.edu" pattern=".*@haverford.edu$"><br><br>
+                        <dt>Activity:
+                        <dd><select name="activity">
+                            <option value="study">Study</option>
+                            <option value="get food">Get food</option>
+                            <option value="hang out">Hang out</option>
+                        </select><br><br>
+                        <dt>Location:
+                        <dd><select name="location">
+			    <option value="Campus Center">Campus Center</option>
+                            <option value="DC">DC</option>
+			    <option value="Founders">Founders</option>
+			    <option value="HCA">HCA</option>
+			    <option value="KINSC">KINSC</option>
+                            <option value="Lunt Lounge">Lunt Lounge</option>
+                            <option value="Magill">Magill</option>
+                            <option value="Roberts">Roberts</option>
+			    <option value="Stokes">Stokes</option>
+                            </select><br><br>
+                        <dt>Status (optional):
+                        <dd><textarea cols="50" rows="3"  name="status" maxlength=140 placeholder="What are you studying? What kind of food are you looking to get?"></textarea><br><br>
+                        <dd><input type=submit value="Get started">
+                </dl>
+        </form>
+	</div> <!-- end modal-body -->
+	<div class="modal-footer">
+	</div>
+
+</body>
+</html>

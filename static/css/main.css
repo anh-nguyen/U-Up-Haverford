@@ -1,0 +1,82 @@
+/*
+ * Display navigation links inline
+ */
+
+.navbar {
+}
+
+
+body {
+	margin: 0;
+	padding: 0 !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #444;
+}
+
+header {
+	padding: 0;
+	margin: 0;
+	height: 0;
+}
+
+/*
+ * Create dark grey header with a white logo
+ */
+
+
+/*
+ * Center the body content
+ */
+
+.container {
+}
+
+#banner {
+	background-color: rgb(208,29,9);
+}
+
+#current_info {
+	display: block;
+	float: right;
+}
+
+h2 {
+	text-align: center;
+}
+
+#about_content {
+	text-align: center;
+}
+
+#sidebar {
+	display: block;
+	overflow-y: auto scroll;
+}
+
+canvas {
+    pointer-events: none;
+    position: absolute;
+}
+
+#map {
+
+}
+
+#filter_div{
+	display: block;
+	margin: auto;
+}
+
+#online_users {
+	display: block;
+	margin: auto;
+}
+
+#filter_div img {
+	height: 20px;
+	margin-right: 2%;
+}
+
+.modal-body form {
+	
+}

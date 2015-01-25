@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+    		var socket = io.connect('http://' + document.domain + ':' + location.port);
+    		socket.on('connect', function() {
+        		socket.emit('my event', {data: 'I\'m connected!'});
+    		});
+	</script>
+	<script src="https://cdn.socket.io/socket.io-1.3.2.js"></script>
+	<title>StuD BuD</title>    
+	<strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+  </head>
+  <body>
+   
+    <header>
+      <div class="container">
+        <h1 class="logo">StuD BuD</h1>
+	<strong><nav>
+		<ul class="menu">
+			<li><a href="{{ url_for('home') }}">Home</a></li>
+			<li><a href="{{ url_for('joinin') }}">Join In</a></li>
+			<li><a href="{{ url_for('about') }}">About</a></li>
+			<li><a href="{{ url_for('contact') }}">Contact</a></li>
+		</ul>
+	</nav></strong>
+      </div>
+    </header> 
+     
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+     
+  </body>
+</html>

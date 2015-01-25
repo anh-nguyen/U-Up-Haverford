@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script> -->
+	<script type="text/javascript" charset="utf-8">
+    		var socket = io.connect('http://' + document.domain + ':' + location.port);
+    		socket.on('connect', function() {
+        		socket.emit('my event', {data: 'I\'m connected!'});
+    		});
+	</script>
+	<!-- <script src="https://cdn.socket.io/socket.io-1.3.2.js"></script> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='uupsquare.png') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+	<title>U UP Haverford</title>    
+	<strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+
+	<!-- delete user data after inactivity-->
+	<script type="text/javascript">
+		var IDLE_TIMEOUT = 18000;
+		var _idleSecondsCounter = 0;
+		document.onclick = function() {
+			_idleSecondsCounter = 0;
+		};
+		document.onmousemove = function() {
+			_idleSecondsCounter = 0:
+		};
+		document.onkeypress = function() {
+			_idleSecondsCounter = 0;
+		};
+	</script>
+
+
+  </head>
+   <body style="padding-top: 0;">
+    <header>
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    	<div class="navbar-header">
+		<a class="navbar-brand" href="{{ url_for('home') }}" style=""><img alt="Brand" src="/static/uupsquare.png" style="height: 30px;"></a>
+      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        	<span class="sr-only">Toggle navigation</span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+      	</button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      			<ul class="nav navbar-nav navbar-right">
+        			<li><a href="{{ url_for('home') }}">Home</a></li>
+				<!-- <li><a data-toggle="modal" data-target=".modal" target="_blank"></a>Join In</li> -->
+        			<li><a data-toggle="modal" data-target="#joinModal" href="{{ url_for('joinin') }}">Join In</a></li>
+        			<li><a data-toggle="modal" data-target="#leaveModal" href="{{ url_for('leave') }}">Leave</a> </li>
+				<li><a href="{{ url_for('about') }}">About</a></li>
+        			<li><a href="{{ url_for('contact') }}">Contact</a></li>
+      		</ul>
+    		</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container-fluid -->
+	</div>
+
+   <!-- Modal -->
+	<div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModal" aria-hidden="true">
+		<div class="modal-dialog"> 
+			<div class="modal-content">
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="leaveModal" tabindex="-1" role="dialog" aria-labelledby="leaveModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			</div>
+		</div>
+	</div>
+	
+	<br />
+	<br />
+
+	<div id="banner" class="row banner col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        	<a href="{{ url_for('home') }}"><img src="/static/uuplogo.png" class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding: 0; margin: 0;"></a>
+		
+		<div id="current_info">
+			<iframe src="http://free.timeanddate.com/clock/i4inlti7/n198/fs17/fcddd/tct/pct/ahr/tt0/tw1/tm1/td1/th2/ts1/tb4" frameborder="0" width="150" height="42" allowTransparency="true"></iframe>
+
+			<script language="JavaScript"> 
+				var ref = (''+document.referrer+'');
+				var w_h = window.screen.width + " x " + window.screen.height;
+				document.write('<script src="http://s1.freehostedscripts.net/ocounter.php?site=ID4694834&e1=Online User&e2=Online Users&r=' + ref + '&wh=' + w_h + '"><\/script>'); 
+			</script>
+		</div> <!-- end  current_info -->
+		
+	</div>
+ 
+    </header>    
+    <div id="content_div">
+      {% block content %}
+      {% endblock %}
+    </div>
+     
+  </body>
+</html>
+

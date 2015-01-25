@@ -1,0 +1,21 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<title>Leaving already?</title>
+</head>
+
+<body>
+	<div class="modal-header">
+         <h2 class="modal-title">Leaving already?</h2>
+	</div>
+
+	<div class="modal-body">
+        <form id="leave_form" name="leave" action="{{ url_for('leave') }}" method=post >
+         <dt>Are you sure you want to leave U Up? Your data will be deleted. <br><br>
+         <dd><input type=submit value="Leave">
+	</div>
+
+	<div class="modal-footer">
+	</div>
+</body>
+</html>

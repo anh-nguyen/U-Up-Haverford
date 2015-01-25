@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<script language="JavaScript">
+	
+</script>
+
+<div id="sidebar" class="col-lg-4">
+	<div id="filter_div">
+		<form action="">
+			<h3>Filters:</h3>
+			<input type="checkbox" name="activity" value="Study" checked onclick="filter_study(this)">Who wants to study?</input><br>
+			<input type="checkbox" name="activity" value="GetFood"checked onclick="filter_food(this)">Who wants to get food?</input><br>
+			<input type="checkbox" name="activity" value="HangOut" checked onclick="filter_hangout(this)">Who wants to hang out?</input><br>
+		</form>
+	</div> <!--end filter_div -->
+	<!-- List of people -->
+	<div id="online_users">
+		<h3>Online Users:</h3>
+		<ul class=entries>
+			{% for entry in entries %}
+				<li id="{{ entry.activity }}"><strong> {{ entry.name }} </strong> wants to {{ entry.activity }} in {{ entry.location }}: "<em>{{ entry.status }}</em>"
+			{% endfor %}
+		</ul>
+	</div> <!-- end online_users -->
+</div><!-- end div sidebar -->
+
+<div id="map" class="row col-lg-8">
+	<img class="col-lg-12" src="/static/someCollege.png" id="haverfordMap" />
+	<map id="imageMap" name="imageMap">
+	</map>
+</div> <!-- end div map -->
+{% endblock %}
